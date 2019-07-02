@@ -2,4 +2,8 @@
     <a href="{{ data.widget.url }}">
         <h2 class="title">{{ data.widget.title }}</h2>
     </a>
+    <p>
+        Learning Styles
+        {{ data.widget.information.items[0].style | dump | safe }}
+    </p>
 </div>
