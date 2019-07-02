@@ -20,10 +20,13 @@
 {% endblock %}
 
 {% block beforeMain %}
-    {#
-      We recommend you use the beforeMain block for global page components
-      like headers or navigation.
-    #}
+    <div class="b-header">
+        {% if not data.user %}
+            <a class="login-link" href="{{ apos.prefix }}/login">Login</a>
+        {% else %}
+            <p>Logged In</p>
+        {% endif %}
+    </div>
 {% endblock %}
 
 {% block main %}

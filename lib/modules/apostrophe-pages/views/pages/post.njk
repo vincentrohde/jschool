@@ -2,6 +2,8 @@
 
 {% block main %}
     <div class="main-content">
+        {#{{ data.page.title | dump | safe }}#}
+        <h1 class="title">{{ data.page.title }}</h1>
         {{ apos.area(data.page, 'body', {
             widgets: {
                 'apostrophe-images': {
@@ -15,6 +17,7 @@
                         { name: 'Paragraph', element: 'p' }
                     ]
                 },
+                'analytics': {},
                 'video': {}
             }
         }) }}
