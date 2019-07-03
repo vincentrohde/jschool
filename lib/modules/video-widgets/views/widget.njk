@@ -1,9 +1,16 @@
 <div class="b-video-widget">
-    <a href="{{ data.widget.url }}">
-        <h2 class="title">{{ data.widget.title }}</h2>
-    </a>
-    <p>
-        Learning Styles
-        {{ data.widget.information.items[0].style | dump | safe }}
-    </p>
+    <div class="video-container">
+        <iframe
+                width="560"
+                height="349"
+                src="{{ data.widget.url | replace("watch?v=", "embed/")}}"
+                frameborder="0"
+                allowfullscreen></iframe>
+    </div>
+
+    <h2 class="title">{{ data.widget.title }}</h2>
+    {#<p>#}
+        {#Learning Styles#}
+        {#{{ data.widget.information.items[0].style | dump | safe }}#}
+    {#</p>#}
 </div>

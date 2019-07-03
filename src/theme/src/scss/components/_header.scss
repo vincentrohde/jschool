@@ -1,0 +1,12 @@
+.b-header {
+    display: flex;
+    justify-content: space-between;
+
+    .search-container {
+        flex: 0 0 33%;
+
+        input {
+            width: 100%;
+        }
+    }
+}

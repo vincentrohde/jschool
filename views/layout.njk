@@ -21,11 +21,25 @@
 
 {% block beforeMain %}
     <div class="b-header">
-        {% if not data.user %}
-            <a class="login-link" href="{{ apos.prefix }}/login">Login</a>
-        {% else %}
-            <p>Logged In</p>
-        {% endif %}
+
+        <div class="logo-container">
+            <a href="/" class="home-link">Home</a>
+        </div>
+
+        <div class="search-container">
+            <form method="GET" action="/search">
+                <input type="text" name="q" />
+                {#<input type="submit" value="Search" />#}
+            </form>
+        </div>
+
+        <div class="avatar-container">
+            {% if not data.user %}
+                <a class="login-link" href="{{ apos.prefix }}/login">Login</a>
+            {% else %}
+                <p>Logged In</p>
+            {% endif %}
+        </div>
     </div>
 {% endblock %}
 

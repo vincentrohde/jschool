@@ -2,12 +2,18 @@ var path = require('path');
 
 var apos = require('apostrophe')({
     shortName: 'jschool',
-
-    // See lib/modules for basic project-level configuration of our modules
-    // responsible for serving static assets, managing page templates and
-    // configuring user accounts.
-
     modules: {
+        'apostrophe-search': {
+            types: [
+                'post'
+            ],
+            filters: [
+                {
+                    name: 'apostrophe-pages',
+                    label: 'Posts'
+                }
+            ]
+        },
         'apostrophe-templates': {
             viewsFolderFallback: path.join(__dirname, 'views'),
             types: [
@@ -22,6 +28,7 @@ var apos = require('apostrophe')({
             ]
         },
         'analytics-widgets': {},
+        'text-widgets': {},
         'video-widgets': {},
     }
 });
