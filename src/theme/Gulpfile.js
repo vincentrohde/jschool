@@ -47,7 +47,7 @@ const scssCompiler = () => {
             browsers: ['last 2 versions'],
             cascade: false
         }))
-        .pipe(dest('../../lib/modules/apostrophe-assets/public/css'));
+        .pipe(dest('../../lib/modules/assets/public/css'));
 }
 
 exports.dist = series(dist);

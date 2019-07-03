@@ -20,7 +20,6 @@
     "verbose": true,
     "ignore": [
       "lib/modules/*/public/js/*.js",
-      "lib/modules/apostrophe-assets/public/css/*.css",
       "locales/*.json",
       "public/modules/**/*.less",
       "public/modules/**/*.js",

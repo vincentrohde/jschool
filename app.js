@@ -27,6 +27,7 @@ var apos = require('apostrophe')({
                 },
             ]
         },
+        'assets': {},
         'analytics-widgets': {},
         'text-widgets': {},
         'video-widgets': {},
