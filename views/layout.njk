@@ -28,7 +28,9 @@
 
         <div class="search-container">
             <form method="GET" action="/search">
-                <input type="text" name="q" />
+                <input placeholder="Mehr zu {{ data.page.tags[0] | capitalize
+                }}?"
+                       type="text" name="q" />
                 {#<input type="submit" value="Search" />#}
             </form>
         </div>
