@@ -1,0 +1,22 @@
+.b-likes {
+    margin: 10px 0;
+    width: 16vw;
+    display: flex;
+    justify-content: space-between;
+
+    .like, .dislike {
+        @include box-shadow();
+        flex: 0 0 7vw;
+        height: 4vw;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+
+    .like {
+        background: $green;
+    }
+
+    .dislike {
+        background: $red;
+    }
+}

@@ -1,3 +1,12 @@
+{% from 'macros/likes.njk' import likeMacro %}
+
+{% set information = data.widget.information.items[0] %}
+{% set styles = information.style %}
+{% set difficulty = information.difficulty %}
+{% set practicality = information.practicality %}
+{% set type = data.widget.type %}
+
 <div class="b-text">
     {{ apos.area(data.widget, 'text', { edit: false }) }}
+    {{ likeMacro(styles, difficulty, practicality, type) }}
 </div>

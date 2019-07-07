@@ -1,0 +1,12 @@
+{% macro likeMacro(style, difficulty, practicality, type) %}
+    <div class="b-likes jst_likes"
+         data-style="{{ style }}"
+         data-difficulty="{{ difficulty }}"
+         data-practicality="{{ practicality }}"
+         data-type="{{ type }}">
+
+        <div class="like js-like"></div>
+        <div class="dislike js-dislike"></div>
+
+    </div>
+{% endmacro %}
