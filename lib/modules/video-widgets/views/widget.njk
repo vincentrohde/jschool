@@ -1,3 +1,11 @@
+{% from 'macros/likes.njk' import likeMacro %}
+
+{% set information = data.widget.information.items[0] %}
+{% set styles = information.style %}
+{% set difficulty = information.difficulty %}
+{% set practicality = information.practicality %}
+{% set type = data.widget.type %}
+
 <div class="b-video-widget">
     <div class="video-container">
         <iframe
@@ -9,8 +17,6 @@
     </div>
 
     <h2 class="title">{{ data.widget.title }}</h2>
-    {#<p>#}
-        {#Learning Styles#}
-        {#{{ data.widget.information.items[0].style | dump | safe }}#}
-    {#</p>#}
+
+    {{ likeMacro(styles, difficulty, practicality, type) }}
 </div>
