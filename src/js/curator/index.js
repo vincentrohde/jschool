@@ -1,7 +1,5 @@
 class Curator {
-    constructor() {
-        this.learningStyles = ['accommodating', 'assimilating', 'converging', 'diverging'];
-    }
+    constructor() {}
 
     filterPostContent(input, preferences) {
         // set learning style for filtering
@@ -23,13 +21,11 @@ class Curator {
 
         // second iteration
         if (items.length > 1) {
-            console.log('ran into first if');
             this.filterForAttribute(items, 'difficulty');
         }
 
         // third iteration
         if (items.length > 1) {
-            console.log('ran into second if');
             this.filterForAttribute(items, 'practicality');
         }
     }
