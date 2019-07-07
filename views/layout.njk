@@ -20,12 +20,30 @@
 {% endblock %}
 
 {% block beforeMain %}
-    <div class="b-header">
-        {% if not data.user %}
-            <a class="login-link" href="{{ apos.prefix }}/login">Login</a>
-        {% else %}
-            <p>Logged In</p>
-        {% endif %}
+    <div class="b-header jst_ID" data-id="{{ data.page._id }}">
+
+        <div class="logo-container">
+            <a href="/" class="home-link">
+                <img src="/img/logo.svg" alt="Site logo">
+            </a>
+        </div>
+
+        <div class="search-container">
+            <form method="GET" action="/search">
+                <input placeholder="Mehr zu {{ data.page.tags[0] | capitalize
+                }}?"
+                       type="text" name="q" />
+                {#<input type="submit" value="Search" />#}
+            </form>
+        </div>
+
+        <div class="avatar-container">
+            {% if not data.user %}
+                <a class="login-link" href="{{ apos.prefix }}/login">Login</a>
+            {% else %}
+                <p>Logged In</p>
+            {% endif %}
+        </div>
     </div>
 {% endblock %}
 

@@ -13,6 +13,7 @@
   "author": "P'unk Avenue",
   "license": "MIT",
   "dependencies": {
+    "@babel/core": "^7.4.5",
     "apostrophe": "^2.47.0"
   },
   "nodemonConfig": {
@@ -28,5 +29,17 @@
       "data"
     ],
     "ext": "json, js, html, less"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^6.1.0",
+    "gulp-babel": "^8.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-livereload": "^4.0.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-sass-glob": "^1.1.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "node-sass": "^4.12.0"
   }
 }

@@ -1,0 +1,14 @@
+.b-video-widget {
+    margin-bottom: 50px;
+
+    .title {
+        @include f-big-bold();
+        margin: 35px 0 22px;
+    }
+
+    .video-container {
+        iframe {
+            @include box-shadow();
+        }
+    }
+}

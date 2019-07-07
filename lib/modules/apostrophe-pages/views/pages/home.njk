@@ -2,21 +2,6 @@
 
 {% block main %}
     <div class="main-content">
-        {{ apos.area(data.page, 'body', {
-            widgets: {
-                'apostrophe-images': {
-                    size: 'full'
-                },
-                'apostrophe-rich-text': {
-                    toolbar: [ 'Styles', 'Bold', 'Italic', 'Link', 'Unlink' ],
-                    styles: [
-                        { name: 'Heading', element: 'h3' },
-                        { name: 'Subheading', element: 'h4' },
-                        { name: 'Paragraph', element: 'p' }
-                    ]
-                },
-                'video': {}
-            }
-        }) }}
+        <h1 class="title">Start Page</h1>
     </div>
 {% endblock %}
