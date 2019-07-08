@@ -6,7 +6,11 @@
 {% set practicality = information.practicality %}
 {% set type = data.widget.type %}
 
-<div class="b-video-widget">
+<div class="b-video-widget jst_videos"
+     data-style="{{ style }}"
+     data-difficulty="{{ difficulty }}"
+     data-practicality="{{ practicality }}"
+     data-type="{{ type }}">
     <div class="video-container">
         <iframe
                 width="560"
