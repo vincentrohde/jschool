@@ -1,0 +1,14 @@
+{# in lib/modules/people-pages/views/show.html #}
+{% extends "layout.html" %}
+{% block title %}{{ data.piece.title }}{% endblock %}
+
+{% block main %}
+    <div class="b-main">
+        <div class="statistics">
+            <h1 class="title">{{ data.piece.title }}</h1>
+            <p class="author">{{ data.page._author }}</p>
+        </div>
+
+        {{ apos.area(data.piece, 'body') }}
+    </div>
+{% endblock %}

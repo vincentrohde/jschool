@@ -1,0 +1,24 @@
+{% macro postPreviewMacro(item) %}
+    <div class="b-preview">
+        <div class="preview-image-container">
+            <a href="{{ item._url }}">
+                <img class="preview-image" src="{{ apos.attachments.url(item
+                    .postImage, { size:
+                        'full' }) }}" alt="">
+            </a>
+            <div class="tags">{{ item.tags }}</div>
+        </div>
+        <div class="preview-teaser-container">
+            <div class="meta-container">
+                <div class="avatar"></div>
+                <div class="meta">
+                    <h2 class="title">
+                        <a href="{{ item._url }}">{{ item.title }}</a>
+                    </h2>
+                </div>
+            </div>
+            <p class="teaser">{{ item.description }}</p>
+        </div>
+        {#{{ item | dump | safe }}#}
+    </div>
+{% endmacro %}
