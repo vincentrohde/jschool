@@ -31,6 +31,10 @@ var apos = require('apostrophe')({
         'analytics-widgets': {},
         'context-widgets': {},
         'image-widgets': {},
+        'posts': {},
+        'posts-pages': {
+            extend: 'apostrophe-pieces-pages'
+        },
         'text-widgets': {},
         'video-widgets': {},
     }

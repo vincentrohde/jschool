@@ -5,7 +5,8 @@ class Curator {
         // set learning style for filtering
         this.preferences = preferences;
 
-        const { body } = input.page;
+        const { body } = input.piece;
+
         let items = body.items;
 
         items.forEach((item, index) => {
