@@ -1,0 +1,44 @@
+.b-post-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    .meta {
+        flex: 0 0 80%;
+
+        .title {
+            margin: 0;
+        }
+    }
+
+    .favorite-container {
+        flex: 0 0 20%;
+        width: 20%;
+        height: 40px;
+        border-radius: 10px;
+        background: $blue;
+        position: relative;
+
+        &.js-is-favorite {
+            background: none;
+            border: 3px solid $blue;
+
+            .favorite-icon {
+                background: url('/img/favorite-active.svg');
+                background-size: contain;
+                background-position: center;
+                background-repeat: no-repeat;
+            }
+        }
+
+        .favorite-icon {
+            @include center();
+            height: 30px;
+            width: 30px;
+            background: url('/img/favorite.svg');
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    }
+}
