@@ -20,6 +20,10 @@
             </div>
         </div>
 
-        {{ apos.area(data.piece, 'body') }}
+        {{ apos.area(data.piece, 'body', {
+            widgets: {
+                'context': {}
+            }
+        }) }}
     </div>
 {% endblock %}
