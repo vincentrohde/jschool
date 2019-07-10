@@ -1,0 +1,19 @@
+.b-search-header {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 0 30px;
+
+    .meta {
+        flex: 0 0 100%;
+        text-align: center;
+
+        .title {
+            @include f-massive-bold();
+            margin: 0 0 10px;
+        }
+
+        .results {
+            @include f-medium-regular();
+        }
+    }
+}
