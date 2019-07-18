@@ -1,0 +1,25 @@
+{% macro likeMacro(data, query) %}
+    <div class="b-header jst_ID" data-id="{{ data.page._id }}">
+
+        <div class="logo-container">
+            <a href="/" class="home-link">
+                <img src="/img/logo.svg" alt="Site logo">
+            </a>
+        </div>
+
+        <div class="search-container">
+            <form method="GET" action="/search">
+                <input placeholder="{{ data.query.q | e }}"
+                       type="text" name="q" />
+            </form>
+        </div>
+
+        <div class="avatar-container">
+            {% if not data.user %}
+                <a class="login-link" href="{{ apos.prefix }}/login">Login</a>
+            {% else %}
+                <p>Logged In</p>
+            {% endif %}
+        </div>
+    </div>
+{% endmacro %}

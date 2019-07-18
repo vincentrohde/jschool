@@ -31,25 +31,6 @@ class Preferences {
         }
     }
 
-    getPreferences(cookieData) {
-        this.cookie = cookieData;
-        if (this.cookie.preferenceProfile) {
-            this.preferenceData = JSON.parse(this.cookie.preferenceProfile);
-            this.getPreferredStyle();
-        }
-    }
-
-    getPreferredStyle() {
-        const { style } = this.preferenceData.likes;
-        let styleRanking = [];
-
-        // console.log('this.preferenceData: ', this.preferenceData);
-        Object.keys(style).forEach((prop) => {
-            console.log(prop);
-            console.log(style[prop]);
-        });
-    }
-
     sortFavoriteTags() {
         const list = [];
 
@@ -81,6 +62,68 @@ class Preferences {
         list.sort((a, b) => b.count - a.count);
 
         return list;
+    }
+
+    getPreferences(cookieData) {
+        this.cookie = cookieData;
+        if (this.cookie.preferenceProfile) {
+            this.preferenceData = JSON.parse(this.cookie.preferenceProfile);
+            this.getPreferredStyle();
+        }
+    }
+
+    getPreferredStyle() {
+        this.preferenceProfile = {}
+        this.preferenceProfile.style = '';
+        this.preferenceProfile.difficulty = this.getBooleanPreferences('difficulty', 'hard');
+        this.preferenceProfile.practicality =
+            this.getBooleanPreferences('practicality', 'theoretical');
+        this.preferenceProfile.dislikedTypes = this.getDislikedTypes();
+
+        console.log(this.preferenceProfile);
+    }
+
+    getBooleanPreferences(dataObjectName, defaultValue) {
+        const dataObject = this.preferenceData.likes[dataObjectName];
+        const dataObjectLength = Object.keys(dataObject).length;
+
+        // if empty or no comparison
+        if (dataObjectLength <= 1) {
+            return defaultValue;
+        }
+
+        let previousValue;
+        const setValue = (name, value) => {
+            previousValue = {
+                name,
+                value
+            };
+        }
+
+        Object.keys(dataObject).forEach((prop) => {
+            if (typeof previousValue === 'undefined') {
+                setValue(prop, dataObject[prop]);
+            } else {
+                if (previousValue.value < dataObject[prop]) {
+                    setValue(prop, dataObject[prop]);
+                }
+            }
+        });
+
+        console.log(previousValue);
+    }
+
+    getDislikedTypes() {
+        const { type } = this.preferenceData.likes;
+        let dislikedTypes = [];
+
+        Object.keys(type).forEach((prop) => {
+            if (Math.sign(type[prop]) === -1) {
+                dislikedTypes.push(prop);
+            }
+        });
+
+        return dislikedTypes;
     }
 }
 
