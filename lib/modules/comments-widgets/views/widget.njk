@@ -1,0 +1,32 @@
+{# code by Stuart Romanek #}
+{# https://github.com/stuartromanek/apostrophe-comment-system #}
+{# modified by Vincent Rohde #}
+
+{% for piece in data.widget._pieces %}
+<div class="b-comments comment-widget" data-piece-id="{{ piece._id }}">
+	<h3 class="title">Kommentare</h3>
+
+    {% if data.user.username %}
+        <div class="comment-form">
+            <textarea class="comment-input" type="text" name="comment"
+                      data-comment-input
+                      placeholder="Schreib deinen Kommentar hier"></textarea>
+            <input type="submit" class="comment-submit"
+                   data-comment-submit placeholder="Submit"/>
+        </div>
+    {% endif %}
+
+	<div class="user-comments">
+        {% for comment in piece.comments | reverse %}
+            <div class="comment">
+                <div class="meta">
+                    <p class="author">{{ comment.user }}</p>
+                </div>
+                <p class="body">
+                    {{ comment.comment }}
+                </p>
+            </div>
+        {% endfor %}
+	</div>
+</div>
+{% endfor %}

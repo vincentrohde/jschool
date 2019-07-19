@@ -1,0 +1,53 @@
+.b-comments {
+    margin-bottom: 50px;
+
+    .title {
+        @include f-big-bold();
+        margin: 50px 0 20px !important;
+    }
+
+    .comment-form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+
+        .comment-input {
+            @include f-medium-regular();
+            @include box-shadow();
+            background: $light-grey;
+
+            flex: 0 0 100%;
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            border: 0;
+            border-radius: 10px;
+            resize: none;
+
+            &::placeholder {
+                color: $black;
+            }
+        }
+
+        .comment-submit {
+            padding: 10px 20px;
+            margin: 15px 0;
+        }
+    }
+
+    .comment {
+        display: flex;
+        justify-content: space-between;
+        margin: 30px 0;
+
+        .meta {
+            flex: 0 0 15%;
+            width: 15%;
+        }
+
+        .body {
+            flex: 0 0 85%;
+            width: 85%;
+        }
+    }
+}

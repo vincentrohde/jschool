@@ -3,6 +3,16 @@ var path = require('path');
 var apos = require('apostrophe')({
     shortName: 'jschool',
     modules: {
+        'apostrophe-email': {
+            // See the nodemailer documentation, many
+            // different transports are available, this one
+            // matches how PHP does it on Linux servers
+            nodemailer: {
+                sendmail: true,
+                newline: 'unix',
+                path: '/usr/sbin/sendmail'
+            }
+        },
         'apostrophe-search': {
             types: [
                 'post'
@@ -27,8 +37,40 @@ var apos = require('apostrophe')({
                 },
             ]
         },
+        'apostrophe-signup': {
+            // How long a signup email remains valid
+            hours: 48,
+            // Apostophe group newly signed-up users are added to,
+            // with optional permissions
+            group: {
+                title: 'editor',
+                permissions: [ 'edit-post', 'edit-attachment' ]
+            },
+            signupUrl: '/signup',
+            signupConfirmUrl: '/signup-confirm',
+            afterSignupUrl: '/',
+            fields: [ 'firstName', 'lastName', 'username' ]
+        },
+        'apostrophe-users': {
+            groups: [
+                {
+                    title: 'guest',
+                    permissions: [ 'guest' ]
+                },
+                {
+                    title: 'editor',
+                    permissions: [ 'edit-post', 'edit-attachment' ]
+                },
+                {
+                    title: 'admin',
+                    permissions: [ 'admin' ]
+                }
+            ]
+        },
         'assets': {},
         'analytics-widgets': {},
+        'comments': {},
+        'comments-widgets': {},
         'context-widgets': {},
         'image-widgets': {},
         'posts': {},
