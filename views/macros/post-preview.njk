@@ -10,11 +10,29 @@
         </div>
         <div class="preview-teaser-container">
             <div class="meta-container">
-                <div class="avatar"></div>
+                {% if item._apostropheUser %}
+                    <div class="avatar">
+                        <a href="{{ item._apostropheUser._url }}" class="link">
+                            <img class="preview-image" src="{{ apos.attachments.url(item
+                                ._apostropheUser.avatar, { size:
+                                    'full' }) }}" alt="">
+                        </a>
+                    </div>
+                {% endif %}
                 <div class="meta">
                     <h2 class="title">
                         <a href="{{ item._url }}">{{ item.title }}</a>
                     </h2>
+                    {% if item._apostropheUser %}
+                        <a href="{{ item._apostropheUser._url }}" class="link">
+                            <p class="author">von {{ item._apostropheUser.username }}</p>
+                        </a>
+                        {% if item.updatedAt %}
+                            <p class="date">{{ item.updatedAt }}</p>
+                        {% else %}
+                            <p class="date">{{ item.createdAt }}</p>
+                        {% endif %}
+                    {% endif %}
                 </div>
             </div>
             <p class="teaser">{{ item.description }}</p>

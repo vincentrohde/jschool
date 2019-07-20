@@ -67,6 +67,9 @@ var apos = require('apostrophe')({
                 }
             ]
         },
+        'apostrophe-users-pages': {
+            extend: 'apostrophe-pieces-pages'
+        },
         'assets': {},
         'analytics-widgets': {},
         'comments': {},

@@ -11,7 +11,12 @@
         <div class="b-post-header">
             <div class="meta">
                 <h1 class="title">{{ data.piece.title }}</h1>
-                <p class="author">{{ data.piece._author }}</p>
+                <p class="author">
+                    von
+                    <a href="{{ data.piece._apostropheUser._url }}" class="link">
+                        {{ data.piece._apostropheUser.username }}
+                    </a>
+                </p>
             </div>
             <div class="favorite-container jst_favorite"
                 data-information='{{ postInformation | json }}'
@@ -25,5 +30,7 @@
                 'context': {}
             }
         }) }}
+        <br />
+        {{ apos.singleton(data.page, 'body', 'comments') }}
     </div>
 {% endblock %}
