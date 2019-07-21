@@ -3,9 +3,7 @@
 {# modified by Vincent Rohde #}
 
 {% for piece in data.widget._pieces %}
-<div class="b-comments comment-widget" data-piece-id="{{ piece._id }}">
-	<h3 class="title">Kommentare</h3>
-
+<div class="comment-widget">
     {% if data.user.username %}
         <div class="comment-form">
             <textarea class="comment-input" type="text" name="comment"
@@ -15,18 +13,5 @@
                    data-comment-submit placeholder="Submit"/>
         </div>
     {% endif %}
-
-	<div class="user-comments">
-        {% for comment in piece.comments | reverse %}
-            <div class="comment">
-                <div class="meta">
-                    <p class="author">{{ comment.user }}</p>
-                </div>
-                <p class="body">
-                    {{ comment.comment }}
-                </p>
-            </div>
-        {% endfor %}
-	</div>
 </div>
 {% endfor %}

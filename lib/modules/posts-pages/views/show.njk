@@ -31,6 +31,24 @@
             }
         }) }}
         <br />
-        {{ apos.singleton(data.page, 'body', 'comments') }}
+
+        <div class="b-comments" data-piece-id="{{ data.piece._comments._id }}">
+            {{ apos.singleton(data.page, 'body', 'comments') }}
+
+            <h3 class="title">Kommentare</h3>
+
+            <div class="user-comments">
+                {% for comment in data.piece._comments.comments | reverse %}
+                    <div class="comment">
+                        <div class="meta">
+                            <p class="author">{{ comment.user }}</p>
+                        </div>
+                        <p class="body">
+                            {{ comment.comment }}
+                        </p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
     </div>
 {% endblock %}

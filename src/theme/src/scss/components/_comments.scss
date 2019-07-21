@@ -3,7 +3,7 @@
 
     .title {
         @include f-big-bold();
-        margin: 50px 0 20px !important;
+        margin: 10px 0 20px !important;
     }
 
     .comment-form {
@@ -30,24 +30,24 @@
         }
 
         .comment-submit {
+            @include f-medium-regular();
+            @include box-shadow();
+            color: $white;
+            background: $blue;
+            border: 0;
+            border-radius: 10px;
             padding: 10px 20px;
-            margin: 15px 0;
+            margin: 20px 0 0;
         }
     }
 
     .comment {
-        display: flex;
-        justify-content: space-between;
+        @include f-medium-regular();
         margin: 30px 0;
 
-        .meta {
-            flex: 0 0 15%;
-            width: 15%;
-        }
-
-        .body {
-            flex: 0 0 85%;
-            width: 85%;
+        .author {
+            font-weight: 500;
+            margin: 0 0 5px;
         }
     }
 }
