@@ -57,9 +57,13 @@
                     margin: 0;
                 }
 
-                .author {
+                .author, .date, .divider {
                     @include f-medium-regular();
                     display: inline-block;
+                }
+
+                .divider {
+                    margin: 0 5px;
                 }
             }
         }

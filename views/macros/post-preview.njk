@@ -10,11 +10,11 @@
         </div>
         <div class="preview-teaser-container">
             <div class="meta-container">
-                {% if item._apostropheUser %}
+                {% if item._author %}
                     <div class="avatar">
-                        <a href="{{ item._apostropheUser._url }}" class="link">
+                        <a href="{{ item._author._url }}" class="link">
                             <img class="preview-image" src="{{ apos.attachments.url(item
-                                ._apostropheUser.avatar, { size:
+                                ._author.avatar, { size:
                                     'full' }) }}" alt="">
                         </a>
                     </div>
@@ -23,14 +23,20 @@
                     <h2 class="title">
                         <a href="{{ item._url }}">{{ item.title }}</a>
                     </h2>
-                    {% if item._apostropheUser %}
-                        <a href="{{ item._apostropheUser._url }}" class="link">
-                            <p class="author">von {{ item._apostropheUser.username }}</p>
-                        </a>
+                    {% if item._author %}
+                        <p class="author">von
+                            <a href="{{ item._author._url }}" class="link">
+                                {{ item._author.authorName }}
+                            </a>
+                        </p>
                         {% if item.updatedAt %}
-                            <p class="date">{{ item.updatedAt }}</p>
+                            <p class="divider">•</p>
+                            <p class="date">
+                                {{ item.updatedAt | date('DD.MM.YY') }}</p>
                         {% else %}
-                            <p class="date">{{ item.createdAt }}</p>
+                            <p class="divider">•</p>
+                            <p class="date">
+                                {{ item.createdAt | date('DD.MM.YY') }}</p>
                         {% endif %}
                     {% endif %}
                 </div>

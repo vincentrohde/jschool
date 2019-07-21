@@ -1,0 +1,37 @@
+.b-author {
+
+    .head {
+        text-align: center;
+        margin-bottom: 30px;
+
+        .title {
+            margin: 10px 0 0;
+        }
+
+        .avatar {
+            display: block;
+            margin: 0 auto;
+            width: 100px;
+            max-height: 100%;
+            border-radius: 50%;
+        }
+
+        .description {
+            @include f-medium-regular();
+            margin: 15px auto;
+        }
+
+        .meta {
+            @include f-medium-regular();
+            text-align: center;
+            margin: 20px 0;
+        }
+    }
+
+    .subtitle {
+        @include f-big-bold();
+        text-align: left;
+        margin: 0 0 20px;
+    }
+
+}

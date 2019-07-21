@@ -51,23 +51,9 @@ var apos = require('apostrophe')({
             afterSignupUrl: '/',
             fields: [ 'firstName', 'lastName', 'username' ]
         },
-        'apostrophe-users': {
-            groups: [
-                {
-                    title: 'guest',
-                    permissions: [ 'guest' ]
-                },
-                {
-                    title: 'editor',
-                    permissions: [ 'edit-post', 'edit-attachment' ]
-                },
-                {
-                    title: 'admin',
-                    permissions: [ 'admin' ]
-                }
-            ]
-        },
-        'apostrophe-users-pages': {
+        'apostrophe-users': {},
+        'authors': {},
+        'authors-pages': {
             extend: 'apostrophe-pieces-pages'
         },
         'assets': {},

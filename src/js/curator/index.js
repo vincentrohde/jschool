@@ -7,12 +7,16 @@ class Curator {
 
         const { body } = input.piece;
 
-        let items = body.items;
+        if (body) {
+            let items = body.items;
 
-        items.forEach((item, index) => {
-            const { areaContext } = item;
-            this.filterContentGroup(areaContext);
-        });
+            items.forEach((item, index) => {
+                const { areaContext } = item;
+                this.filterContentGroup(areaContext);
+            });
+        } else {
+            return;
+        }
     }
 
     filterContentGroup(contentGroup) {
