@@ -66,6 +66,7 @@ var apos = require('apostrophe')({
         'posts-pages': {
             extend: 'apostrophe-pieces-pages'
         },
+        'quiz-widgets': {},
         'text-widgets': {},
         'video-widgets': {},
     }

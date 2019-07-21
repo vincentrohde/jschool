@@ -1,0 +1,13 @@
+<div class="b-quiz">
+    <div class="question">
+        {{ data.widget.question }}
+    </div>
+
+    <div class="answers">
+        {% for answer in data.widget.answers %}
+            <div class="answer">
+                {{ answer.answer }}
+            </div>
+        {% endfor %}
+    </div>
+</div>
