@@ -1,5 +1,14 @@
+.ui-draggable {
+    .b-context {
+        background: $light-grey;
+        padding: 20px;
+        border-radius: 10px;
+    }
+}
+
 .b-context {
-    margin: 20px 0;
-    border: 1px solid red;
-    padding: 0 20px;
+
+    .b-widget {
+        margin-bottom: 50px;
+    }
 }

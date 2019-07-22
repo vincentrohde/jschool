@@ -3,6 +3,7 @@ var path = require('path');
 var apos = require('apostrophe')({
     shortName: 'jschool',
     modules: {
+        'additional-widgets': {},
         'apostrophe-email': {
             // See the nodemailer documentation, many
             // different transports are available, this one

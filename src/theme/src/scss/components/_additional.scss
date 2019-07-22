@@ -1,0 +1,17 @@
+.b-additional {
+    margin-bottom: 50px;
+
+    .title {
+        @include f-big-bold();
+        margin: 0 0 20px;
+    }
+
+    .additionals {
+        margin: 0 0 40px;
+    }
+
+    .link {
+        display: block;
+        margin: 15px 0;
+    }
+}
