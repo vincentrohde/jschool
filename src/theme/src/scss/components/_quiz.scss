@@ -7,6 +7,7 @@
     color: $white;
     padding: 20px;
     border-radius: 10px;
+    margin: 40px 0;
 
     .question {
         @include f-big-bold();
@@ -21,6 +22,8 @@
 
         .answer {
             @include box-shadow();
+            @include f-big-bold();
+            font-weight: 400;
 
             flex: 0 0 47%;
             height: 40px;
@@ -29,6 +32,15 @@
             border-radius: 10px;
             text-align: center;
             line-height: 40px;
+
+            &.correct {
+                background: $green;
+            }
+
+            &.wrong {
+                background: $red;
+                color: $white;
+            }
         }
     }
 }

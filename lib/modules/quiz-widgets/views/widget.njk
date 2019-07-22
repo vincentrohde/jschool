@@ -5,7 +5,7 @@
 
     <div class="answers">
         {% for answer in data.widget.answers %}
-            <div class="answer">
+            <div class="answer" {% if answer.correct %}data-correct{% endif %}>
                 {{ answer.answer }}
             </div>
         {% endfor %}
