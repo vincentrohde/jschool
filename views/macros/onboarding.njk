@@ -1,0 +1,33 @@
+{% macro onboardingMacro() %}
+    <div class="b-onboarding jst_onboarding">
+        <div class="onboarding-container">
+            <div class="header">
+                <h1 class="title">Hey, </h1>
+                <p class="description">schön das du hier bist. Wir wollen dir gerne mehr über die Welt und ihre Zusammenhänge beibringen. Wähl den zu dir passenden Lernstil, dann können wir los legen.</p>
+            </div>
+            <div class="style-cards">
+                <div class="card">
+                    <h2 class="title">Aus dem Bauch heraus</h2>
+                    <p class="description">Die Theorie interessiert mich nicht. Ich will lieber praktische Erfahrungen sammeln und die Probleme direkt lösen. Am liebsten wär es mir, so schnell wie möglich mit der Lösung des Problems zu beginnen. Auf meinen Instinkt ist immer Verlass.</p>
+                </div>
+                <div class="card">
+                    <h2 class="title">Aus dem Bauch heraus</h2>
+                    <p class="description">Die Theorie interessiert mich nicht. Ich will lieber praktische Erfahrungen sammeln und die Probleme direkt lösen. Am liebsten wär es mir, so schnell wie möglich mit der Lösung des Problems zu beginnen. Auf meinen Instinkt ist immer Verlass.</p>
+                </div>
+                <div class="card">
+                    <h2 class="title">Aus dem Bauch heraus</h2>
+                    <p class="description">Die Theorie interessiert mich nicht. Ich will lieber praktische Erfahrungen sammeln und die Probleme direkt lösen. Am liebsten wär es mir, so schnell wie möglich mit der Lösung des Problems zu beginnen. Auf meinen Instinkt ist immer Verlass.</p>
+                </div>
+            </div>
+            <form class="learning-styles">
+                <div class="slide-show-dots">
+                    <input type="radio" name="style" value="diverging" checked>
+                    <input type="radio" name="style" value="converging">
+                    <input type="radio" name="style" value="assimilating">
+                    <input type="radio" name="style" value="accomodating">
+                </div>
+                <input value="Das bin ich!" type="submit" class="submit">
+            </form>
+        </div>
+    </div>
+{% endmacro %}

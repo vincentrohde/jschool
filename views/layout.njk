@@ -1,3 +1,5 @@
+{% from 'macros/onboarding.njk' import onboardingMacro %}
+
 {# Automatically extends the right outer layout and also handles AJAX siutations #}
 {% extends data.outerLayout %}
 
@@ -54,7 +56,5 @@
 {% endblock %}
 
 {% block afterMain %}
-    {#
-      This would be a great place to put a global footer.
-    #}
+    {{ onboardingMacro() }}
 {% endblock %}

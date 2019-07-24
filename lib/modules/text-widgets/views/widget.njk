@@ -5,8 +5,9 @@
 {% set difficulty = information.difficulty %}
 {% set practicality = information.practicality %}
 {% set type = data.widget.type %}
+{% set id = data.widget._id %}
 
 <div class="b-text b-widget">
     {{ apos.area(data.widget, 'text', { edit: false }) }}
-    {{ likeMacro(styles, difficulty, practicality, type) }}
+    {{ likeMacro(styles, difficulty, practicality, type, id) }}
 </div>

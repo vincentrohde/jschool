@@ -1,0 +1,92 @@
+.b-onboarding {
+    display: none;
+    width: 100vw;
+    height: 100vh;
+    background: $blue;
+    position: fixed;
+    top: 0;
+    z-index: 9999;
+
+    &.active {
+        display: block;
+    }
+
+    .onboarding-container {
+        position: relative;
+        background: $white;
+        width: 100%;
+        height: 100%;
+        padding: 50px 20px;
+
+        .header {
+            .title {
+                @include f-massive-bold();
+                margin: 0 0 20px;
+            }
+
+            .description {
+                @include f-medium-regular();
+                font-size: 20px;
+            }
+        }
+
+        .style-cards {
+            width: 100%;
+            height: 250px;
+            overflow-x: scroll;
+            white-space: nowrap;
+            scroll-snap-type: x mandatory;
+            margin: 30px 0;
+
+            .card {
+                width: 100%;
+                height: 100%;
+                background: $blue;
+                border-radius: 10px;
+                padding: 10px;
+                display: inline-block;
+                white-space: normal;
+                scroll-snap-align: start;
+
+                .title, .description {
+                    color: $white;
+                }
+
+                .title {
+                    @include f-massive-bold();
+                    font-size: 30px;
+                    margin: 0 0 30px;
+                }
+
+                .description {
+                    @include f-medium-regular();
+                }
+            }
+        }
+
+        .learning-styles {
+            .slide-show-dots {
+                display: flex;
+                justify-content: center;
+
+                input {
+                    margin: 0 4px;
+                }
+            }
+        }
+
+        .submit {
+            @include f-massive-bold();
+            font-size: 30px;
+
+            position: absolute;
+            bottom: 50px;
+            width: calc(100% - 40px);
+            height: 70px;
+            background: $blue;
+            color: $white;
+            border: 0;
+            border-radius: 10px;
+        }
+    }
+}

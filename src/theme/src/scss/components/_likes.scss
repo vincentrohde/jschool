@@ -1,15 +1,23 @@
 .b-likes {
-    margin: 10px 0;
-    width: 16vw;
+    margin: 20px 0;
+    width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: start;
 
     .like, .dislike {
         @include box-shadow();
-        flex: 0 0 7vw;
-        height: 4vw;
+        flex: 0 0 70px;
+        height: 40px;
         border-radius: 10px;
         cursor: pointer;
+        margin: 0 20px 0 0;
+        position: relative;
+
+        .icon {
+            @include center();
+            width: 25%;
+            max-height: 100%;
+        }
     }
 
     .like {

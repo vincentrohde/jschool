@@ -5,6 +5,7 @@
 {% set difficulty = information.difficulty %}
 {% set practicality = information.practicality %}
 {% set type = data.widget.type %}
+{% set id = data.widget._id %}
 
 <div class="b-additional b-widget">
     <h2 class="title">Mehr Informationen</h2>
@@ -16,5 +17,5 @@
         {% endfor %}
     </div>
 
-    {{ likeMacro(styles, difficulty, practicality, type) }}
+    {{ likeMacro(styles, difficulty, practicality, type, id) }}
 </div>
