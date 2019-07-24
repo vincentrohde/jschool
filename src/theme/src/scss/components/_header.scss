@@ -1,16 +1,14 @@
-$header-height: 6vh;
-
 .b-header {
     display: flex;
     justify-content: space-between;
-    height: $header-height;
+    height: 6vh;
     padding: 20px;
     margin-bottom: 50px;
 
     .logo-container {
-        flex: 0 0 $header-height;
-        width: $header-height;
-        height: $header-height;
+        flex: 0 0 6vh;
+        width: 6vh;
+        height: 6vh;
 
         img {
             width: 100%;
@@ -19,17 +17,17 @@ $header-height: 6vh;
     }
 
     .search-container {
-        flex: 0 0 40%;
+        flex: 1;
         position: relative;
-        height: $header-height;
+        height: 6vh;
 
         input {
             @include f-medium-regular();
             @include box-shadow();
             @include center();
 
-            width: 100%;
-            line-height: 4vh;
+            width: 80%;
+            line-height: 5vh;
             border-radius: 4px;
             background: $light-grey;
             padding: 0 10px;
@@ -42,10 +40,10 @@ $header-height: 6vh;
     }
 
     .avatar-container {
-        height: $header-height;
+        height: 6vh;
 
         p {
-            line-height: $header-height;
+            line-height: 6vh;
         }
     }
 }
