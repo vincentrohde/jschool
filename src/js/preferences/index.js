@@ -68,7 +68,7 @@ class Preferences {
         this.cookie = cookieData;
         if (this.cookie.preferenceProfile) {
             this.preferenceData = JSON.parse(this.cookie.preferenceProfile);
-            this.getPreferredProfile();
+            return this.getPreferredProfile();
         }
     }
 
@@ -112,7 +112,7 @@ class Preferences {
         dataObjectStylesList.sort((a, b) => b.count - a.count);
 
         if (dataObjectStylesList[0].count >= (dataObjectStylesList[1].count * 1.2)) {
-            return dataObjectStylesList[0];
+            return dataObjectStylesList[0].name;
         } else {
             return onboardingStyle;
         }

@@ -33,6 +33,11 @@ class Curator {
         if (items.length > 1) {
             this.filterForAttribute(items, 'practicality');
         }
+
+        // type iteration if items still contains items
+        if (items.length) {
+            this.filterForAttribute(items, 'dislikedTypes');
+        }
     }
 
     filterForAttribute(items, attributeName) {
@@ -46,8 +51,16 @@ class Curator {
                     const attributeList = information[attributeName];
 
                     if (attributeList) {
-                        if (!this.isPreferredAttribute(attributeName, attributeList)) {
-                            items.splice(index, 1);
+                        if (attributeName == 'dislikedTypes') {
+                            if (this.isPreferredAttribute(attributeName, attributeList)) {
+                                // remove from list
+                                items.splice(index, 1);
+                            }
+                        } else {
+                            if (!this.isPreferredAttribute(attributeName, attributeList)) {
+                                // remove from list
+                                items.splice(index, 1);
+                            }
                         }
                     }
                 }
