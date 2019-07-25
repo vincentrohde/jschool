@@ -68,19 +68,54 @@ class Preferences {
         this.cookie = cookieData;
         if (this.cookie.preferenceProfile) {
             this.preferenceData = JSON.parse(this.cookie.preferenceProfile);
-            this.getPreferredStyle();
+            this.getPreferredProfile();
         }
     }
 
-    getPreferredStyle() {
+    getPreferredProfile() {
         this.preferenceProfile = {}
-        this.preferenceProfile.style = '';
+        this.preferenceProfile.style = this.getLearningStyle();
         this.preferenceProfile.difficulty = this.getBooleanPreferences('difficulty', 'hard');
         this.preferenceProfile.practicality =
             this.getBooleanPreferences('practicality', 'theoretical');
         this.preferenceProfile.dislikedTypes = this.getDislikedTypes();
 
-        console.log(this.preferenceProfile);
+        return this.preferenceProfile;
+    }
+
+    getLearningStyle() {
+        const dataObject = this.preferenceData.likes.style;
+        const onboardingData = JSON.parse(this.cookie.learningStyle);
+        const onboardingStyle = onboardingData.style;
+
+        let dataObjectStylesList = [];
+
+        // return onboardingStyle as default value
+        if (typeof dataObject == 'undefined') {
+            return onboardingStyle;
+        }
+
+        Object.keys(dataObject).forEach(prop => {
+            dataObjectStylesList.push({
+                name: prop,
+                count: dataObject[prop]
+            });
+        });
+
+        dataObjectStylesList.forEach((item, index) => {
+            if (item.name == onboardingStyle) {
+                item.count = item.count * 1.5;
+            }
+        });
+
+        // sort list descending
+        dataObjectStylesList.sort((a, b) => b.count - a.count);
+
+        if (dataObjectStylesList[0].count >= (dataObjectStylesList[1].count * 1.2)) {
+            return dataObjectStylesList[0];
+        } else {
+            return onboardingStyle;
+        }
     }
 
     getBooleanPreferences(dataObjectName, defaultValue) {
@@ -109,8 +144,6 @@ class Preferences {
                 }
             }
         });
-
-        console.log(previousValue);
     }
 
     getDislikedTypes() {
