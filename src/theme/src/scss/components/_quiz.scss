@@ -1,13 +1,20 @@
 .b-quiz {
-    @include f-medium-regular();
-    @include box-shadow();
 
-    font-weight: 500;
-    background: $blue;
-    color: $white;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 40px 0;
+    .quiz-container {
+        @include f-medium-regular();
+        @include box-shadow();
+
+        font-weight: 500;
+        background: $blue;
+        color: $white;
+        padding: 20px;
+        border-radius: 10px;
+        margin: 40px 0 15px;
+    }
+
+    .b-likes {
+        margin: 0 0 20px;
+    }
 
     .question {
         @include f-big-bold();

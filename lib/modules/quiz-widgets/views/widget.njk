@@ -1,13 +1,27 @@
+{% from 'macros/likes.njk' import likeMacro %}
+
+{% set information = data.widget.information.items[0] %}
+{% set styles = information.style %}
+{% set difficulty = information.difficulty %}
+{% set practicality = information.practicality %}
+{% set type = data.widget.type %}
+{% set id = data.widget._id %}
+
 <div class="b-quiz b-widget">
-    <div class="question">
-        {{ data.widget.question }}
+
+    <div class="quiz-container">
+        <div class="question">
+            {{ data.widget.question }}
+        </div>
+
+        <div class="answers">
+            {% for answer in data.widget.answers %}
+                <div class="answer" {% if answer.correct %}data-correct{% endif %}>
+                    {{ answer.answer }}
+                </div>
+            {% endfor %}
+        </div>
     </div>
 
-    <div class="answers">
-        {% for answer in data.widget.answers %}
-            <div class="answer" {% if answer.correct %}data-correct{% endif %}>
-                {{ answer.answer }}
-            </div>
-        {% endfor %}
-    </div>
+    {{ likeMacro(styles, difficulty, practicality, type, id) }}
 </div>

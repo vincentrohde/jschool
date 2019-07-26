@@ -4,14 +4,12 @@
 
 {% for piece in data.widget._pieces %}
 <div class="comment-widget">
-    {% if data.user.username %}
-        <div class="comment-form">
-            <textarea class="comment-input" type="text" name="comment"
-                      data-comment-input
-                      placeholder="Schreib deinen Kommentar hier"></textarea>
-            <input type="submit" class="comment-submit"
-                   data-comment-submit placeholder="Submit"/>
-        </div>
-    {% endif %}
+    <div class="comment-form">
+        <textarea class="comment-input" type="text" name="comment"
+                  data-comment-input
+                  placeholder="Schreib deinen Kommentar hier"></textarea>
+        <input type="submit" class="comment-submit"
+               data-comment-submit placeholder="Submit"/>
+    </div>
 </div>
 {% endfor %}
