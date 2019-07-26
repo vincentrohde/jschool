@@ -42,26 +42,54 @@ class Curator {
 
     filterForAttribute(items, attributeName) {
         items.forEach((item, index) => {
-            // check if information widget exists for item
-            if (item.information) {
-                const information = item.information.items[0];
 
-                // check if items were set for information
-                if (information) {
-                    const attributeList = information[attributeName];
+            if (item.type !== 'exercises') {
+                // check if information widget exists for item
+                if (item.information) {
+                    const information = item.information.items[0];
 
-                    if (attributeList) {
-                        if (attributeName == 'dislikedTypes') {
-                            if (this.isPreferredAttribute(attributeName, attributeList)) {
-                                // remove from list
-                                items.splice(index, 1);
-                            }
-                        } else {
-                            if (!this.isPreferredAttribute(attributeName, attributeList)) {
-                                // remove from list
-                                items.splice(index, 1);
+                    // check if items were set for information
+                    if (information) {
+                        const attributeList = information[attributeName];
+
+                        if (attributeList) {
+                            if (attributeName == 'dislikedTypes') {
+                                if (this.isPreferredAttribute(attributeName, attributeList)) {
+                                    // remove from list
+                                    items.splice(index, 1);
+                                }
+                            } else {
+                                if (!this.isPreferredAttribute(attributeName, attributeList)) {
+                                    // remove from list
+                                    items.splice(index, 1);
+                                }
                             }
                         }
+                    }
+                }
+            } else {
+                if (attributeName === 'style') {
+                    item.exercises.forEach((exercise, position) => {
+                        if (exercise.information) {
+                            const information = exercise.information.items[0];
+
+                            // check if items were set for information
+                            if (information) {
+                                const attributeList = information[attributeName];
+
+                                if (attributeList) {
+                                    if (!this.isPreferredAttribute(attributeName, attributeList)) {
+                                        // remove from list
+                                        item.exercises.splice(position, 1);
+                                    }
+                                }
+                            }
+                        }
+                    });
+
+                    // if empty then remove block
+                    if (!item.exercises.length) {
+                        items.splice(index, 1);
                     }
                 }
             }

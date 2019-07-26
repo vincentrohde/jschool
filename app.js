@@ -38,6 +38,7 @@ var apos = require('apostrophe')({
         'comments': {},
         'comments-widgets': {},
         'context-widgets': {},
+        'exercises-widgets': {},
         'image-widgets': {},
         'posts': {},
         'posts-pages': {

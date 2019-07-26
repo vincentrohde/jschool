@@ -1,0 +1,20 @@
+{% from 'macros/likes.njk' import likeMacro %}
+
+{% set information = data.widget.information.items[0] %}
+{% set styles = information.style %}
+{% set difficulty = information.difficulty %}
+{% set practicality = information.practicality %}
+{% set type = data.widget.type %}
+{% set id = data.widget._id %}
+
+<div class="b-exercises">
+    <h2 class="title">Aufgaben</h2>
+
+    <div class="exercises-container">
+        {% for exercise in data.widget.exercises %}
+            <p class="exercise">{{loop.index}}. {{ exercise.description }}</p>
+        {% endfor %}
+    </div>
+
+    {#{{ likeMacro(styles, difficulty, practicality, type, id) }}#}
+</div>

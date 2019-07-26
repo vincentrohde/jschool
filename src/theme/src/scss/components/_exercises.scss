@@ -1,0 +1,24 @@
+.b-exercises {
+    .title {
+        @include f-big-bold();
+        margin: 10px 0 20px !important;
+    }
+
+    .exercise {
+        @include f-medium-regular();
+        line-height: 1.5;
+        background: $blue;
+        color: $white;
+        padding: 10px;
+        border-radius: 10px;
+        margin: 0 0 10px;
+
+        &:nth-of-type(2n) {
+            background: $light-blue;
+        }
+
+        &:last-of-type {
+            margin: 0;
+        }
+    }
+}
