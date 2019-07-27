@@ -32,8 +32,13 @@ body {
     }
 
     .title {
-        @include f-massive-bold();
-        margin: 50px 0;
+        @include f-big-bold();
+        margin: 50px 0 20px;
+
+        @include tablet-up() {
+            @include f-massive-bold();
+            margin: 50px 0;
+        }
     }
 }
 

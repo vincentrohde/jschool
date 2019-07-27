@@ -16,7 +16,7 @@
         background: $white;
         width: 100%;
         height: 100%;
-        padding: 50px 20px;
+        padding: 30px 20px;
 
         .header {
             .title {
@@ -26,16 +26,18 @@
 
             .description {
                 @include f-medium-regular();
-                font-size: 20px;
+                font-size: 15px;
             }
         }
 
         .style-cards {
             width: 100%;
-            height: 250px;
+            height: 205px;
             overflow-x: scroll;
             white-space: nowrap;
             scroll-snap-type: x mandatory;
+            -webkit-scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
             margin: 30px 0;
 
             .card {
@@ -85,13 +87,14 @@
             font-size: 30px;
 
             position: absolute;
-            bottom: 50px;
+            bottom: 30px;
             width: calc(100% - 40px);
             height: 70px;
             background: $blue;
             color: $white;
             border: 0;
             border-radius: 10px;
+            -webkit-appearance: none;
         }
     }
 }

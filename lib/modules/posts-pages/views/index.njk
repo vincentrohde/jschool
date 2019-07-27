@@ -10,11 +10,22 @@
         {% for piece in data.filteredPosts %}
             {{ postPreviewMacro(piece) }}
         {% endfor %}
+
+        <div class="b-favorite-tags">
+            <h2 class="title">Deine Kategorien</h2>
+            <ul class="tags">
+                {% for tag in data.piecesFilters.tags %}
+                    <li class="tag">
+                        <a class="link"
+                           href="{{ data.page._url |
+                           build({ tags: tag.value }) }}">
+                            {{ tag.label }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
     </div>
-    {# YES, YOU NEED PAGINATION. You could set the `perPage` option to a large
-       number, but eventually you will have performance issues. However, also
-       see the discussion of "Load More" and infinite scroll solutions later in this
-       tutorial. #}
     {% import 'apostrophe-pager:macros.html' as pager with context %}
     {{ pager.render({ page: data.currentPage, total: data.totalPages }, data.url) }}
 {% endblock %}

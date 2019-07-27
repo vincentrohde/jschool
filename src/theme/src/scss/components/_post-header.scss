@@ -24,7 +24,7 @@
             border: 3px solid $blue;
 
             .favorite-icon {
-                background: url('/img/favorite-active.svg');
+                background-image: url('/img/favorite-active.svg');
                 background-size: contain;
                 background-position: center;
                 background-repeat: no-repeat;
@@ -35,7 +35,7 @@
             @include center();
             height: 30px;
             width: 30px;
-            background: url('/img/favorite.svg');
+            background-image: url('/img/favorite.svg');
             background-size: contain;
             background-position: center;
             background-repeat: no-repeat;

@@ -1,0 +1,26 @@
+.b-favorite-tags {
+    .tags {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        .tag {
+            position: relative;
+            flex: 0 0 47%;
+            width: 47%;
+            height: 60px;
+            margin: 10px 0;
+            border-radius: 10px;
+            background: $blue;
+            color: $white;
+
+            .link {
+                @include f-medium-regular();
+                @include center();
+                color: $white;
+                font-weight: normal;
+                text-transform: capitalize;
+            }
+        }
+    }
+}
