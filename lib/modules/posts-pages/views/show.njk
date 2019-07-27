@@ -1,0 +1,54 @@
+{# in lib/modules/people-pages/views/show.html #}
+{% extends "layout.html" %}
+{% block title %}{{ data.piece.title }}{% endblock %}
+
+{% block main %}
+    {% set postInformation = {
+        id: data.piece._id,
+        tags: data.piece.tags
+    } %}
+    <div class="b-main">
+        <div class="b-post-header">
+            <div class="meta">
+                <h1 class="title">{{ data.piece.title }}</h1>
+                <p class="author">
+                    von
+                    <a href="{{ data.piece._author._url }}" class="link">
+                        {{ data.piece._author.authorName }}
+                    </a>
+                </p>
+            </div>
+            <div class="favorite-container jst_favorite"
+                data-information='{{ postInformation | json }}'
+            >
+                <div class="favorite-icon"></div>
+            </div>
+        </div>
+
+        {{ apos.area(data.piece, 'body', {
+            widgets: {
+                'context': {}
+            }
+        }) }}
+        <br />
+
+        <div class="b-comments" data-piece-id="{{ data.piece._comments._id }}">
+            {{ apos.singleton(data.page, 'body', 'comments') }}
+
+            <h3 class="title">Kommentare</h3>
+
+            <div class="user-comments">
+                {% for comment in data.piece._comments.comments | reverse %}
+                    <div class="comment">
+                        <div class="meta">
+                            <p class="author">{{ comment.user }}</p>
+                        </div>
+                        <p class="body">
+                            {{ comment.comment }}
+                        </p>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

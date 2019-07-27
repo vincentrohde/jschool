@@ -9,6 +9,7 @@
     .video-container {
         iframe {
             @include box-shadow();
+            width: 100%;
         }
     }
 }

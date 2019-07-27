@@ -3,6 +3,7 @@ var path = require('path');
 var apos = require('apostrophe')({
     shortName: 'jschool',
     modules: {
+        'additional-widgets': {},
         'apostrophe-search': {
             types: [
                 'post'
@@ -27,10 +28,23 @@ var apos = require('apostrophe')({
                 },
             ]
         },
+        'apostrophe-users': {},
+        'authors': {},
+        'authors-pages': {
+            extend: 'apostrophe-pieces-pages'
+        },
         'assets': {},
         'analytics-widgets': {},
+        'comments': {},
+        'comments-widgets': {},
         'context-widgets': {},
+        'exercises-widgets': {},
         'image-widgets': {},
+        'posts': {},
+        'posts-pages': {
+            extend: 'apostrophe-pieces-pages'
+        },
+        'quiz-widgets': {},
         'text-widgets': {},
         'video-widgets': {},
     }

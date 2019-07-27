@@ -1,0 +1,50 @@
+{% macro postPreviewMacro(item) %}
+    <div class="b-preview">
+        <div class="preview-image-container">
+            <a href="{{ item._url }}">
+                <img class="preview-image" src="{{ apos.attachments.url(item
+                    .postImage, { size:
+                        'full' }) }}" alt="">
+            </a>
+            <a href="/search?q={{ item.tags[0] }}" class="tags">{{ item
+                .tags
+                }}</a>
+        </div>
+        <div class="preview-teaser-container">
+            <div class="meta-container">
+                {% if item._author %}
+                    <div class="avatar">
+                        <a href="{{ item._author._url }}" class="link">
+                            <img class="preview-image" src="{{ apos.attachments.url(item
+                                ._author.avatar, { size:
+                                    'full' }) }}" alt="">
+                        </a>
+                    </div>
+                {% endif %}
+                <div class="meta">
+                    <h2 class="title">
+                        <a href="{{ item._url }}">{{ item.title }}</a>
+                    </h2>
+                    {% if item._author %}
+                        <p class="author">von
+                            <a href="{{ item._author._url }}" class="link">
+                                {{ item._author.authorName }}
+                            </a>
+                        </p>
+                        {% if item.updatedAt %}
+                            <p class="divider">•</p>
+                            <p class="date">
+                                {{ item.updatedAt | date('DD.MM.YY') }}</p>
+                        {% else %}
+                            <p class="divider">•</p>
+                            <p class="date">
+                                {{ item.createdAt | date('DD.MM.YY') }}</p>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+            <p class="teaser">{{ item.description }}</p>
+        </div>
+        {#{{ item | dump | safe }}#}
+    </div>
+{% endmacro %}

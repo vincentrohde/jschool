@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block title %}{{ data.page.title }}{% endblock %}
+
+{% block main %}
+    <div class="b-main">
+        {% for piece in data.pieces %}
+            {{ piece._id }}
+        {% endfor %}
+    </div>
+    {# YES, YOU NEED PAGINATION. You could set the `perPage` option to a large
+       number, but eventually you will have performance issues. However, also
+       see the discussion of "Load More" and infinite scroll solutions later in this
+       tutorial. #}
+    {% import 'apostrophe-pager:macros.html' as pager with context %}
+    {{ pager.render({ page: data.currentPage, total: data.totalPages }, data.url) }}
+{% endblock %}

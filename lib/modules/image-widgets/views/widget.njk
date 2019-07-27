@@ -1,7 +1,18 @@
-<div class="b-image">
+{% from 'macros/likes.njk' import likeMacro %}
+
+{% set information = data.widget.information.items[0] %}
+{% set styles = information.style %}
+{% set difficulty = information.difficulty %}
+{% set practicality = information.practicality %}
+{% set type = data.widget.type %}
+{% set id = data.widget._id %}
+
+<div class="b-image b-widget">
     {{ apos.area(data.widget, 'image', {
         edit: false,
         limit: 1,
         size: 'full'
     }) }}
+
+    {{ likeMacro(styles, difficulty, practicality, type, id) }}
 </div>

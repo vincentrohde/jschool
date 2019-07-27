@@ -1,0 +1,54 @@
+.b-comments {
+    margin-bottom: 50px;
+
+    .title {
+        @include f-big-bold();
+        margin: 10px 0 20px !important;
+    }
+
+    .comment-form {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+
+        .comment-input {
+            @include f-medium-regular();
+            @include box-shadow();
+            background: $light-grey;
+
+            flex: 0 0 100%;
+            width: 100%;
+            height: 150px;
+            padding: 10px;
+            border: 0;
+            border-radius: 10px;
+            resize: none;
+
+            &::placeholder {
+                color: $black;
+            }
+        }
+
+        .comment-submit {
+            @include f-medium-regular();
+            @include box-shadow();
+            color: $white;
+            background: $blue;
+            border: 0;
+            border-radius: 10px;
+            padding: 10px 20px;
+            margin: 20px 0 0;
+            -webkit-appearance: none;
+        }
+    }
+
+    .comment {
+        @include f-medium-regular();
+        margin: 30px 0;
+
+        .author {
+            font-weight: 500;
+            margin: 0 0 5px;
+        }
+    }
+}

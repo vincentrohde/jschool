@@ -14,7 +14,8 @@
   "license": "MIT",
   "dependencies": {
     "@babel/core": "^7.4.5",
-    "apostrophe": "^2.47.0"
+    "apostrophe": "^2.47.0",
+    "lodash": "^4.17.13"
   },
   "nodemonConfig": {
     "verbose": true,

@@ -1,19 +1,22 @@
 class Curator {
-    constructor() {
-        this.learningStyles = ['accommodating', 'assimilating', 'converging', 'diverging'];
-    }
+    constructor() {}
 
     filterPostContent(input, preferences) {
         // set learning style for filtering
         this.preferences = preferences;
 
-        const { body } = input.page;
-        let items = body.items;
+        const { body } = input.piece;
 
-        items.forEach((item, index) => {
-            const { areaContext } = item;
-            this.filterContentGroup(areaContext);
-        });
+        if (body) {
+            let items = body.items;
+
+            items.forEach((item, index) => {
+                const { areaContext } = item;
+                this.filterContentGroup(areaContext);
+            });
+        } else {
+            return;
+        }
     }
 
     filterContentGroup(contentGroup) {
@@ -23,31 +26,70 @@ class Curator {
 
         // second iteration
         if (items.length > 1) {
-            console.log('ran into first if');
             this.filterForAttribute(items, 'difficulty');
         }
 
         // third iteration
         if (items.length > 1) {
-            console.log('ran into second if');
             this.filterForAttribute(items, 'practicality');
+        }
+
+        // type iteration if items still contains items
+        if (items.length) {
+            this.filterForAttribute(items, 'dislikedTypes');
         }
     }
 
     filterForAttribute(items, attributeName) {
         items.forEach((item, index) => {
-            // check if information widget exists for item
-            if (item.information) {
-                const information = item.information.items[0];
 
-                // check if items were set for information
-                if (information) {
-                    const attributeList = information[attributeName];
+            if (item.type !== 'exercises') {
+                // check if information widget exists for item
+                if (item.information) {
+                    const information = item.information.items[0];
 
-                    if (attributeList) {
-                        if (!this.isPreferredAttribute(attributeName, attributeList)) {
-                            items.splice(index, 1);
+                    // check if items were set for information
+                    if (information) {
+                        const attributeList = information[attributeName];
+
+                        if (attributeList) {
+                            if (attributeName == 'dislikedTypes') {
+                                if (this.isPreferredAttribute(attributeName, attributeList)) {
+                                    // remove from list
+                                    items.splice(index, 1);
+                                }
+                            } else {
+                                if (!this.isPreferredAttribute(attributeName, attributeList)) {
+                                    // remove from list
+                                    items.splice(index, 1);
+                                }
+                            }
                         }
+                    }
+                }
+            } else {
+                if (attributeName === 'style') {
+                    item.exercises.forEach((exercise, position) => {
+                        if (exercise.information) {
+                            const information = exercise.information.items[0];
+
+                            // check if items were set for information
+                            if (information) {
+                                const attributeList = information[attributeName];
+
+                                if (attributeList) {
+                                    if (!this.isPreferredAttribute(attributeName, attributeList)) {
+                                        // remove from list
+                                        item.exercises.splice(position, 1);
+                                    }
+                                }
+                            }
+                        }
+                    });
+
+                    // if empty then remove block
+                    if (!item.exercises.length) {
+                        items.splice(index, 1);
                     }
                 }
             }

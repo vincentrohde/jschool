@@ -1,16 +1,29 @@
-<div class="b-video-widget">
+{% from 'macros/likes.njk' import likeMacro %}
+
+{% set information = data.widget.information.items[0] %}
+{% set styles = information.style %}
+{% set difficulty = information.difficulty %}
+{% set practicality = information.practicality %}
+{% set type = data.widget.type %}
+{% set id = data.widget._id %}
+
+<div class="b-video-widget b-widget jst_videos"
+     data-style="{{ style }}"
+     data-difficulty="{{ difficulty }}"
+     data-practicality="{{ practicality }}"
+     data-type="{{ type }}">
     <div class="video-container">
         <iframe
                 width="560"
-                height="349"
+                height="200"
                 src="{{ data.widget.url | replace("watch?v=", "embed/")}}"
                 frameborder="0"
                 allowfullscreen></iframe>
     </div>
 
     <h2 class="title">{{ data.widget.title }}</h2>
-    {#<p>#}
-        {#Learning Styles#}
-        {#{{ data.widget.information.items[0].style | dump | safe }}#}
-    {#</p>#}
+
+    <p class="description">{{ data.widget.description }}</p>
+
+    {{ likeMacro(styles, difficulty, practicality, type, id) }}
 </div>

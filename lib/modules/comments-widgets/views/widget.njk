@@ -1,0 +1,15 @@
+{# code by Stuart Romanek #}
+{# https://github.com/stuartromanek/apostrophe-comment-system #}
+{# modified by Vincent Rohde #}
+
+{% for piece in data.widget._pieces %}
+<div class="comment-widget">
+    <div class="comment-form">
+        <textarea class="comment-input" type="text" name="comment"
+                  data-comment-input
+                  placeholder="Schreib deinen Kommentar hier"></textarea>
+        <input type="submit" class="comment-submit"
+               data-comment-submit placeholder="Submit"/>
+    </div>
+</div>
+{% endfor %}

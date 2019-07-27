@@ -7,6 +7,46 @@
     line-height: 1.5;
 }
 
+body {
+    background: #fff !important;
+}
+
 @import "variables/**/*.scss";
 @import "mixins/**/*.scss";
+
+.b-main.main-content {
+    background: unset;
+    box-shadow: unset;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.b-main {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+
+    @media only screen and (min-width: 1024px) {
+        padding: 0;
+    }
+
+    .title {
+        @include f-big-bold();
+        margin: 50px 0 20px;
+
+        @include tablet-up() {
+            @include f-massive-bold();
+            margin: 50px 0;
+        }
+    }
+}
+
+.link {
+    @include f-medium-regular();
+    color: $blue;
+    text-decoration: none;
+    font-weight: bold;
+}
+
 @import "components/**/*.scss";

@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+{% from 'macros/post-preview.njk' import postPreviewMacro %}
+
+{% block title %}{{ data.piece.title }}{% endblock %}
+
+{% block main %}
+    <div class="b-main b-author">
+        <div class="head">
+            <img class="avatar"
+                 src="{{ apos.attachments.url(data.piece.avatar, { size:
+                     'full' }) }}" alt="">
+            <h1 class="title">{{ data.piece.authorName }}</h1>
+            <p class="description">{{ data.piece.description }}</p>
+
+            <div class="meta">
+                <div class="posts">{{ data.piece._post | length }}
+                    Beiträge</div>
+                <div class="tags"></div>
+            </div>
+
+        </div>
+
+        <h2 class="subtitle">Beiträge</h2>
+
+        {% for post in data.piece._post %}
+            {{ postPreviewMacro(post) }}
+        {% endfor %}
+    </div>
+{% endblock %}

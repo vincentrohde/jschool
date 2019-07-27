@@ -1,3 +1,5 @@
+{% from 'macros/onboarding.njk' import onboardingMacro %}
+
 {# Automatically extends the right outer layout and also handles AJAX siutations #}
 {% extends data.outerLayout %}
 
@@ -30,16 +32,15 @@
 
         <div class="search-container">
             <form method="GET" action="/search">
-                <input placeholder="Mehr zu {{ data.page.tags[0] | capitalize
-                }}?"
+                <input placeholder="Was willst du lernen?"
                        type="text" name="q" />
-                {#<input type="submit" value="Search" />#}
             </form>
         </div>
 
         <div class="avatar-container">
             {% if not data.user %}
-                <a class="login-link" href="{{ apos.prefix }}/login">Login</a>
+                <a class="login-link link" href="{{ apos.prefix
+                }}/login">Login</a>
             {% else %}
                 <p>Logged In</p>
             {% endif %}
@@ -56,7 +57,5 @@
 {% endblock %}
 
 {% block afterMain %}
-    {#
-      This would be a great place to put a global footer.
-    #}
+    {{ onboardingMacro() }}
 {% endblock %}
