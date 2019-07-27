@@ -127,11 +127,13 @@ class Preferences {
 
         if (this.preferenceData) {
             dataObject = this.preferenceData.likes[dataObjectName];
-            dataObjectLength = Object.keys(dataObject).length;
+            if (dataObject) {
+                dataObjectLength = Object.keys(dataObject).length;
+            }
         }
 
         // if empty or no comparison
-        if (!this.preferenceData || dataObjectLength <= 1) {
+        if (!this.preferenceData || dataObjectLength <= 1 || !dataObject) {
             return defaultValue;
         }
 
