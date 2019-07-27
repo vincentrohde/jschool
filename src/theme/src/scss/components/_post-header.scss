@@ -24,10 +24,7 @@
             border: 3px solid $blue;
 
             .favorite-icon {
-                background-image: url('https://raw.githubusercontent.com/vincentrohde/jschool/master/public/img/favorite-active.svg');
-                background-size: contain;
-                background-position: center;
-                background-repeat: no-repeat;
+                filter: none;
             }
         }
 
@@ -35,10 +32,7 @@
             @include center();
             height: 30px;
             width: 30px;
-            background-image: url('https://raw.githubusercontent.com/vincentrohde/jschool/master/public/img/favorite.svg');
-            background-size: contain;
-            background-position: center;
-            background-repeat: no-repeat;
+            filter: brightness(0) invert(1);
         }
     }
 }
