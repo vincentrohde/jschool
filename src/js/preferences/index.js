@@ -69,6 +69,8 @@ class Preferences {
         if (this.cookie.preferenceProfile) {
             this.preferenceData = JSON.parse(this.cookie.preferenceProfile);
             return this.getPreferredProfile();
+        } else {
+            return this.getPreferredProfile();
         }
     }
 
@@ -84,16 +86,18 @@ class Preferences {
     }
 
     getLearningStyle() {
-        const dataObject = this.preferenceData.likes.style;
+        if (this.preferenceData) {
+            const dataObject = this.preferenceData.likes.style;
+        }
         const onboardingData = JSON.parse(this.cookie.learningStyle);
         const onboardingStyle = onboardingData.style;
-
-        let dataObjectStylesList = [];
 
         // return onboardingStyle as default value
         if (typeof dataObject == 'undefined') {
             return onboardingStyle;
         }
+
+        let dataObjectStylesList = [];
 
         Object.keys(dataObject).forEach(prop => {
             dataObjectStylesList.push({
@@ -119,11 +123,15 @@ class Preferences {
     }
 
     getBooleanPreferences(dataObjectName, defaultValue) {
-        const dataObject = this.preferenceData.likes[dataObjectName];
-        const dataObjectLength = Object.keys(dataObject).length;
+        let dataObject, dataObjectLength;
+
+        if (this.preferenceData) {
+            dataObject = this.preferenceData.likes[dataObjectName];
+            dataObjectLength = Object.keys(dataObject).length;
+        }
 
         // if empty or no comparison
-        if (dataObjectLength <= 1) {
+        if (!this.preferenceData || dataObjectLength <= 1) {
             return defaultValue;
         }
 
@@ -147,6 +155,10 @@ class Preferences {
     }
 
     getDislikedTypes() {
+        if (!this.preferenceData) {
+            return [];
+        }
+
         const { type } = this.preferenceData.likes;
         let dislikedTypes = [];
 
