@@ -77,9 +77,9 @@ class Preferences {
     getPreferredProfile() {
         this.preferenceProfile = {}
         this.preferenceProfile.style = this.getLearningStyle();
-        this.preferenceProfile.difficulty = this.getBooleanPreferences('difficulty', 'hard');
+        this.preferenceProfile.difficulty = this.getBooleanPreferences('difficulty', 'easy');
         this.preferenceProfile.practicality =
-            this.getBooleanPreferences('practicality', 'theoretical');
+            this.getBooleanPreferences('practicality', 'practical');
         this.preferenceProfile.dislikedTypes = this.getDislikedTypes();
 
         return this.preferenceProfile;
