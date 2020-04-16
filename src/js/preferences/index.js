@@ -154,6 +154,8 @@ class Preferences {
                 }
             }
         });
+
+        return previousValue.name;
     }
 
     getDislikedTypes() {
