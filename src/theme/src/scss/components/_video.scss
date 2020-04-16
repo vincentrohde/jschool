@@ -12,4 +12,8 @@
             width: 100%;
         }
     }
+
+    .description {
+        @include f-medium-regular();
+    }
 }

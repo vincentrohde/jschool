@@ -7,7 +7,12 @@
         flex: 0 0 80%;
 
         .title {
+            font-size: 30px;
             margin: 0;
+        }
+
+        .author {
+            @include f-medium-regular();
         }
     }
 

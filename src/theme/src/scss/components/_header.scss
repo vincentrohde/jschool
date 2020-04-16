@@ -27,6 +27,7 @@
             @include center();
 
             width: 80%;
+            max-width: 500px;
             line-height: 5vh;
             border-radius: 4px;
             background: $light-grey;
