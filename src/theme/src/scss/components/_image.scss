@@ -1,0 +1,10 @@
+.b-image {
+    .title {
+        font-size: 15px;
+        margin: 10px 0 30px;
+
+        @include tablet-up {
+            text-align: center;
+        }
+    }
+}
