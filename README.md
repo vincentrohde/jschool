@@ -4,6 +4,9 @@ Educational platform, that returns tailor-made content based on the
 student‘s learning profile and recommends new content on observed 
 preferences.
 
+![home-screen)](https://user-images.githubusercontent.com/25182140/79671355-f3634400-81c9-11ea-8e1e-f3cb55c8ef17.png)
+
+
 ## Table of Contents
 
 1. [Getting Started](#getting-started)
@@ -75,8 +78,6 @@ when it comes to content management. In the next chapters the focus will be more
 on the stuff behind the scenes (the backend code).
 
 ## Features
-
-Besides of the 
 
 ### Tracker
 
