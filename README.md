@@ -4,7 +4,7 @@ Educational platform, that returns tailor-made content based on the
 student‘s learning profile and recommends new content on observed 
 preferences.
 
-![home-screen)](https://user-images.githubusercontent.com/25182140/79671355-f3634400-81c9-11ea-8e1e-f3cb55c8ef17.png)
+![home-screen](https://user-images.githubusercontent.com/25182140/79671471-b77cae80-81ca-11ea-94a7-1b544035c66b.png)
 
 
 ## Table of Contents
