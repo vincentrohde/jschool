@@ -14,8 +14,8 @@
   "license": "MIT",
   "dependencies": {
     "@babel/core": "^7.4.5",
-    "apostrophe": "^2.47.0",
-    "lodash": "^4.17.13"
+    "apostrophe": "^2.110.0",
+    "lodash": "^4.17.19"
   },
   "nodemonConfig": {
     "verbose": true,
@@ -41,6 +41,6 @@
     "gulp-sass-glob": "^1.1.0",
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
-    "node-sass": "^4.12.0"
+    "node-sass": "^4.14.1"
   }
 }
