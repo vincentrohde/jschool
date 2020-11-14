@@ -1,0 +1,29 @@
+version: '3.7'
+
+services:
+  mongo:
+    image: 'mongo:latest'
+    volumes:
+      - './data/db:/data/db'
+    expose:
+      - '27017'
+    restart: always
+
+  aposcms:
+    build: .
+    ports:
+      - '3000:3000'
+    volumes:
+      - './data:/app/data'
+      - './public/uploads:/app/public/uploads:rw'
+    links:
+      - mongo:mongo
+    depends_on:
+      - mongo
+    environment:
+      APOS_MONGODB_URI: 'mongodb://mongo:27017/db'
+      APOS_ALWAYS_COPY_ASSETS: '1'
+    # restart: always
+
+volumes:
+  mongo:

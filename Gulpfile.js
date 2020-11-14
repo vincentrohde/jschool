@@ -40,14 +40,14 @@ const dist = () => {
 }
 
 const scssCompiler = () => {
-    return src('./src/scss/style.scss')
+    return src('./src/theme/src/scss/style.scss')
         .pipe(sassGlob())
         .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
         .pipe(autoprefixer({
             browsers: ['last 2 versions'],
             cascade: false
         }))
-        .pipe(dest('../../lib/modules/assets/public/css'));
+        .pipe(dest('./lib/modules/assets/public/css'));
 }
 
 exports.dist = series(dist);

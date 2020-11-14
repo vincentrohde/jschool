@@ -1,6 +1,6 @@
-var path = require('path');
+const path = require('path');
 
-var apos = require('apostrophe')({
+const apos = require('apostrophe')({
     shortName: 'jschool',
     modules: {
         'additional-widgets': {},
@@ -14,6 +14,9 @@ var apos = require('apostrophe')({
                     label: 'Posts'
                 }
             ]
+        },
+        'apostrophe-db': {
+            uri: process.env.APOS_MONGODB_URI
         },
         'apostrophe-templates': {
             viewsFolderFallback: path.join(__dirname, 'views'),
