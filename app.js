@@ -15,6 +15,9 @@ var apos = require('apostrophe')({
                 }
             ]
         },
+        'apostrophe-db': {
+            uri: process.env.APOS_MONGODB_URI
+        },
         'apostrophe-templates': {
             viewsFolderFallback: path.join(__dirname, 'views'),
             types: [
