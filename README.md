@@ -39,7 +39,17 @@ npm install
 
 ### Account Creation
 
-First of all, create an admin account. The prompt will ask for a password of your choice.
+##### Connect to the Container
+
+First of all you need to connect with the cli of your Apostrophe container. To do so, enter the following command.
+
+```
+docker exec -it { your Apostrophe container id } /bin/bash
+```
+
+##### Set up your account
+
+In the beginning, start by creating an admin account. The prompt will ask for a password of your choice.
 Make sure to remember your password!
 
 ```
