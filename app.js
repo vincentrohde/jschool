@@ -18,6 +18,17 @@ const apos = require('apostrophe')({
         'apostrophe-db': {
             uri: process.env.APOS_MONGODB_URI
         },
+        'apostrophe-pages': {
+            park: [
+                {
+                    title: 'Search',
+                    slug: '/search',
+                    type: 'apostrophe-search',
+                    label: 'Search',
+                    published: true
+                }
+            ]
+        },
         'apostrophe-templates': {
             viewsFolderFallback: path.join(__dirname, 'views'),
             types: [
