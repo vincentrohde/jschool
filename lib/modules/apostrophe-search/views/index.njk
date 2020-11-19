@@ -9,13 +9,13 @@
     <div class="b-header jst_ID" data-id="{{ data.page._id }}">
 
         <div class="logo-container">
-            <a href="/" class="home-link">
-                <img src="/img/logo.svg" alt="Site logo">
+            <a href="{{ apos.prefix }}/" class="home-link">
+                <img src="{{ apos.prefix }}/img/logo.svg" alt="Site logo">
             </a>
         </div>
 
         <div class="search-container">
-            <form method="GET" action="/search">
+            <form method="GET" action="{{ apos.prefix }}/search">
                 <input placeholder="{{ data.query.q | e }}"
                        type="text" name="q" />
             </form>
