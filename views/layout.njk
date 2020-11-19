@@ -25,13 +25,13 @@
     <div class="b-header jst_ID" data-id="{{ data.page._id }}">
 
         <div class="logo-container">
-            <a href="/" class="home-link">
-                <img src="/img/logo.svg" alt="Site logo">
+            <a href="{{ apos.prefix }}/" class="home-link">
+                <img src="{{ apos.prefix }}/img/logo.svg" alt="Site logo">
             </a>
         </div>
 
         <div class="search-container">
-            <form method="GET" action="/search">
+            <form method="GET" action="{{ apos.prefix }}/search">
                 <input placeholder="Was willst du lernen?"
                        type="text" name="q" />
             </form>
@@ -40,9 +40,9 @@
         <div class="avatar-container">
             {% if not data.user %}
                 <a class="login-link link" href="{{ apos.prefix
-                }}/login">Login</a>
+                }}./login">Login</a>
             {% else %}
-                <a class="login-link link" href="{{ apos.prefix }}/logout">Logout</a>
+                <a class="login-link link" href="{{ apos.prefix }}./logout">Logout</a>
             {% endif %}
         </div>
     </div>

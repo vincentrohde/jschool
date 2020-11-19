@@ -13,7 +13,7 @@
                 <h1 class="title">{{ data.piece.title }}</h1>
                 <p class="author">
                     von
-                    <a href="{{ data.piece._author._url }}" class="link">
+                    <a href="{{ apos.prefix }}{{ data.piece._author._url }}" class="link">
                         {{ data.piece._author.authorName }}
                     </a>
                 </p>
@@ -21,7 +21,7 @@
             <div class="favorite-container jst_favorite"
                 data-information='{{ postInformation | json }}'
             >
-                <img class="favorite-icon" src="/img/favorite-active.svg">
+                <img class="favorite-icon" src="{{ apos.prefix }}/img/favorite-active.svg">
             </div>
         </div>
 

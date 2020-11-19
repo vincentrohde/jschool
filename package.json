@@ -15,6 +15,7 @@
   "dependencies": {
     "@babel/core": "^7.4.5",
     "apostrophe": "^2.110.0",
+    "dotenv": "^8.2.0",
     "lodash": "^4.17.19"
   },
   "nodemonConfig": {

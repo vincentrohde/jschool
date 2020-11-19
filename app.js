@@ -1,7 +1,11 @@
+require('dotenv').config();
+
 const path = require('path');
+const prefixUrl = process.env.PREFIX || '';
 
 const apos = require('apostrophe')({
     shortName: 'jschool',
+    prefix: prefixUrl,
     modules: {
         'additional-widgets': {},
         'apostrophe-search': {
