@@ -9,7 +9,8 @@ services:
       - '27017'
     restart: always
 
-  aposcms:
+  # Apostrophe CMS
+  bachelor:
     build: .
     volumes:
       - './data:/app/data'
