@@ -4,4 +4,10 @@ services:
   aposcms:
     environment:
       PREFIX: '/bachelor'
+    networks:
+      - nginx.docker
 
+networks:
+  nginx.docker:
+    name: nginx.docker
+    external: true
