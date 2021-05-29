@@ -9,10 +9,9 @@ services:
       - '27017'
     restart: always
 
-  aposcms:
+# Apostrophe CMS
+  bachelor:
     build: .
-    ports:
-      - '3000:3000'
     volumes:
       - './data:/app/data'
       - './public/uploads:/app/public/uploads:rw'
@@ -23,7 +22,4 @@ services:
     environment:
       APOS_MONGODB_URI: 'mongodb://mongo:27017/db'
       APOS_ALWAYS_COPY_ASSETS: '1'
-    # restart: always
-
-volumes:
-  mongo:
+      restart: always

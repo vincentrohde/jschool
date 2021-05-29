@@ -1,0 +1,16 @@
+version: '3.7'
+
+services:
+  mongo:
+    networks:
+      - nginx.docker
+  bachelor:
+    environment:
+      PREFIX: '/bachelor'
+    networks:
+      - nginx.docker
+
+networks:
+  nginx.docker:
+    name: nginx.docker
+    external: true
