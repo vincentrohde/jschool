@@ -29,7 +29,7 @@ jobs:
         run: ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
       - name: Deploy with rsync
         run: |
-          rsync -avz ./lib ./public ./sample-profiles ./src ./scripts/wait-for-it.sh ./views ./Gulpfile.js ./app.js ./package.json ./package-lock.json ./.dockerignore ./docker-compose.yml ./docker-compose.prod.yml ./Makefile ./Dockerfile ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_LOCATION }}
+          rsync -avz ./lib ./public ./sample-profiles ./src ./scripts ./views ./Gulpfile.js ./app.js ./package.json ./package-lock.json ./.dockerignore ./docker-compose.yml ./docker-compose.prod.yml ./Makefile ./Dockerfile ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.SSH_LOCATION }}
       - name: Restarting Server
         uses: appleboy/ssh-action@master
         with:
